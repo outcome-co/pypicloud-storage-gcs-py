@@ -20,7 +20,7 @@ check: check-types lint ## Run checks and linters
 
 check-types: ## Run mypy
 	# Disabled for now
-	# poetry run mypy ./bin ./src
+	#poetry run mypy ./bin ./src
 
 lint: clean lint-isort lint-black lint-flake ## Run all linters
 	
@@ -89,7 +89,7 @@ test: clean test-unit test-integration coverage ## Run all tests
 # i.e. SKIP_COVERAGE=1 when the `test` target has been called, or SKIP_COVERAGE=0 otherwise
 define run-pytest
 	@SKIP_COVERAGE=$(ALL_TESTS) $(MAKE) clean-coverage
-	poetry run coverage run --context=$(COVERAGE_CONTEXT) -m pytest ./test
+	poetry run coverage run --context=$(COVERAGE_CONTEXT) -m pytest --maxfail=1 --ff -vv ./test
 	poetry run coverage combine --append
 	@SKIP_COVERAGE=$(ALL_TESTS) $(MAKE) coverage
 endef
@@ -139,9 +139,9 @@ test-integration: ## Run integration tests
 
 # CLEANING
 
-.PHONY: clean clean-docs clean-pyhon clean-packages clean-coverage
+.PHONY: clean clean-docs clean-coverage
 
-clean: clean-docs clean-python clean-packages clean-coverage ## Remove generated data
+clean: clean-docs clean-coverage clean-python ## Remove generated data
 
 clean-docs: ## Remove docs
 	rm -rf docs
@@ -150,9 +150,6 @@ clean-python: ## Remove python artifacts
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -delete
 	rm -rf dist
-
-clean-packages: ## Remove intermediate package files
-	rm -rfv src/*.egg-info
 
 ifeq ($(SKIP_COVERAGE), 1)
 clean-coverage:
