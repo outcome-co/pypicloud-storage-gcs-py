@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "outcome-pypicloud-storage-gcs"
+version = "0.1.0"
+description = "description_TBD"
+authors = ["Outcome Engineering <engineering@outcome.co>"]
+packages = [
+  { include = "outcome", from = "src" }
+]
+homepage = "https://github.com/outcome-co/pypicloud-storage-gcs-py"
+repository = "https://github.com/outcome-co/pypicloud-storage-gcs-py"
+documentation = "https://github.com/outcome-co/pypicloud-storage-gcs-py#README"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+outcome-devkit = "^3.0.1"
+
+[tool.coverage.run]
+branch = true
+data_file = 'coverage/data'
+source = ['src']
+omit = [
+   "test/*"
+]
+parallel = true
+
+[tool.coverage.report]
+fail_under = 100
+skip_empty = true
+
+[tool.coverage.html]
+show_contexts = true
+directory = 'coverage/html'
+
+[tool.black]
+line-length = 130
+include = '\.pyi?$'
+# This stops black from rewriting quotes
+skip-string-normalization = true
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.cache
+)/
+'''
+
+[tool.isort]
+skip_glob = "*/.cache/**/*"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+bump_message = "chore(version): $current_version → $new_version"
+version_files = ["README.md:version-badge", "pyproject.toml:version"]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
