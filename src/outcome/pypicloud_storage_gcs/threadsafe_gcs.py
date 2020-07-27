@@ -17,7 +17,7 @@ from pypicloud.storage.gcs import GoogleCloudStorage
 LOG = logging.getLogger(__name__)
 
 
-class ThreadsafeGoogleCloudStorage(GoogleCloudStorage):
+class ThreadsafeGoogleCloudStorage(GoogleCloudStorage):  # pragma: no cover
     def __init__(self, *args, **kwargs) -> None:
         # Wait until we've created the instance, i.e. in the worker
         # thread, before creating the client instance
