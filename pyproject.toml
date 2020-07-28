@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "outcome-pypicloud-storage-gcs"
 version = "0.2.2"
-description = "description_TBD"
+description = "A fork-safe verion of the GCS Storage backend for PyPICloud."
 authors = ["Outcome Engineering <engineering@outcome.co>"]
 packages = [
   { include = "outcome", from = "src" }
