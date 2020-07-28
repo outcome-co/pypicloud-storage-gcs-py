@@ -1,5 +1,5 @@
 # pypicloud-storage-gcs-py
-![ci-badge](https://github.com/outcome-co/pypicloud-storage-gcs-py/workflows/Release/badge.svg) ![version-badge](https://img.shields.io/badge/version-0.2.1-brightgreen)
+![ci-badge](https://github.com/outcome-co/pypicloud-storage-gcs-py/workflows/Release/badge.svg) ![version-badge](https://img.shields.io/badge/version-0.2.2-brightgreen)
 
 A fork-safe verion of the GCS Storage backend.
 
