@@ -1,10 +1,9 @@
-from unittest.mock import patch, Mock
+import time
+from multiprocessing import Pool as ProcessPool
+from multiprocessing.dummy import Pool as ThreadPool
+from unittest.mock import Mock, patch
 
 from outcome.pypicloud_storage_gcs.threadsafe_gcs import BucketDescriptor
-from multiprocessing.dummy import Pool as ThreadPool
-from multiprocessing import Pool as ProcessPool
-import time
-
 
 bucket_name = 'test_bucket'
 kwargs = {'arg': 'value'}
@@ -29,7 +28,6 @@ def get_bucket_id(instance):
 
 
 class TestDescriptor:
-
     @patch('outcome.pypicloud_storage_gcs.threadsafe_gcs.ThreadsafeGoogleCloudStorage._get_storage_client', autospec=True)
     def test_descriptor(self, mocked_get_client: Mock):
         instance = DummyClass()
