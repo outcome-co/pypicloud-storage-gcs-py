@@ -41,7 +41,7 @@ class BucketDescriptor:
         key = self.get_key(obj)
 
         if key not in self.bucket_map:
-            LOG.info('Creating the thread-specific GCS client')
+            LOG.info('Creating the thread-specific GCS client with key %s', key)  # noqa: WPS323
 
             # Get the bucket name and settins from the object
             bucket_client_settings = obj.bucket_client_settings
@@ -49,6 +49,8 @@ class BucketDescriptor:
 
             client = ThreadsafeGoogleCloudStorage._get_storage_client(bucket_client_settings)
             self.bucket_map[key] = client.bucket(bucket_name)
+        else:
+            LOG.info('Re-using the thread-specific GCS client with key %s', key)  # noqa: WPS323
 
         return self.bucket_map[key]
 
@@ -69,3 +71,7 @@ class ThreadsafeGoogleCloudStorage(GoogleCloudStorage):  # pragma: no cover
     @classmethod
     def get_bucket(cls, bucket_name: str, settings):
         LOG.info('Skipping pre-fork bucket initialisation')
+        # We return the bucket name instead of the bucket
+        # A bit of a hack, but the only way to get the bucket name
+        # into the __init__ function
+        return bucket_name
