@@ -60,7 +60,7 @@ class ThreadsafeGoogleCloudStorage(GoogleCloudStorage):  # pragma: no cover
 
     # Set the bucket attribute to a descriptor, which allows for
     # property-like dynamic behaviour
-    bucket = BucketDescriptor(lambda *args, **kwargs: GoogleCloudStorage._get_storage_client)
+    bucket = BucketDescriptor(GoogleCloudStorage._get_storage_client)
 
     def __init__(self, *args, **kwargs) -> None:
         # Keep the name of the bucket
