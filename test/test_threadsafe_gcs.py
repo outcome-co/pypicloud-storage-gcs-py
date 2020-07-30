@@ -1,9 +1,9 @@
 import time
-import pytest
 from multiprocessing import Pool as ProcessPool
 from multiprocessing.dummy import Pool as ThreadPool
 from unittest.mock import Mock, patch
 
+import pytest
 from outcome.pypicloud_storage_gcs.threadsafe_gcs import BucketDescriptor
 
 bucket_name = 'test_bucket'
@@ -11,6 +11,7 @@ kwargs = {'arg': 'value'}
 
 
 mock_gcs_client_factory = Mock()
+
 
 def mock_gcs_client_factory_implementation(*args, **kwargs):
     mock_client = Mock()
