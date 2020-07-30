@@ -1,4 +1,5 @@
 import time
+import pytest
 from multiprocessing import Pool as ProcessPool
 from multiprocessing.dummy import Pool as ThreadPool
 from unittest.mock import Mock, patch
@@ -9,8 +10,29 @@ bucket_name = 'test_bucket'
 kwargs = {'arg': 'value'}
 
 
+mock_gcs_client_factory = Mock()
+
+def mock_gcs_client_factory_implementation(*args, **kwargs):
+    mock_client = Mock()
+    mock_bucket = Mock()
+
+    mock_bucket.client = mock_client
+    mock_client.bucket.return_value = mock_bucket
+
+    return mock_client
+
+
+mock_gcs_client_factory.side_effect = mock_gcs_client_factory_implementation
+
+
+@pytest.fixture(autouse=True)
+def reset_mock():
+    mock_gcs_client_factory.reset_mock()
+    mock_gcs_client_factory.side_effect = mock_gcs_client_factory_implementation
+
+
 class DummyClass:
-    bucket = BucketDescriptor()
+    bucket = BucketDescriptor(mock_gcs_client_factory)
 
     def __init__(self):
         self.bucket_name = bucket_name
@@ -32,13 +54,13 @@ class TestDescriptor:
     def test_descriptor(self, mocked_get_client: Mock):
         instance = DummyClass()
 
-        mocked_get_client.assert_not_called()
+        mock_gcs_client_factory.assert_not_called()
 
         bucket_a = instance.bucket
         bucket_b = instance.bucket
 
         assert bucket_a is bucket_b
-        mocked_get_client.assert_called_once_with(kwargs)
+        mock_gcs_client_factory.assert_called_once_with(kwargs)
 
     def run_pool_test(self, pool_type):
         instance = DummyClass()

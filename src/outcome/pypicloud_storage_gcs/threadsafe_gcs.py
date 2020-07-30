@@ -20,8 +20,9 @@ LOG = logging.getLogger(__name__)
 
 
 class BucketDescriptor:
-    def __init__(self) -> None:
+    def __init__(self, gcs_client_factory) -> None:
         self.bucket_map = {}
+        self.gcs_client_factory = gcs_client_factory
 
     def __set__(self, obj, value):  # pragma: no cover
         # Turn obj.bucket = <some obj> into a no-op
@@ -47,7 +48,7 @@ class BucketDescriptor:
             bucket_client_settings = obj.bucket_client_settings
             bucket_name = obj.bucket_name
 
-            client = ThreadsafeGoogleCloudStorage._get_storage_client(bucket_client_settings)
+            client = self.gcs_client_factory(bucket_client_settings)
             self.bucket_map[key] = client.bucket(bucket_name)
         else:
             LOG.info('Re-using the thread-specific GCS client with key %s', key)  # noqa: WPS323
@@ -59,7 +60,7 @@ class ThreadsafeGoogleCloudStorage(GoogleCloudStorage):  # pragma: no cover
 
     # Set the bucket attribute to a descriptor, which allows for
     # property-like dynamic behaviour
-    bucket = BucketDescriptor()
+    bucket = BucketDescriptor(lambda *args, **kwargs: GoogleCloudStorage._get_storage_client)
 
     def __init__(self, *args, **kwargs) -> None:
         # Keep the name of the bucket
