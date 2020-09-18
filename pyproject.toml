@@ -15,7 +15,7 @@ readme = "README.md"
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-outcome-devkit = "^3.0.1"
+outcome-devkit = "^3.0.2"
 pypicloud = {extras = ["gcs"], version = "^1.1.4"}
 uwsgi = "^2.0.19"
 outcome-pypicloud-access-github = "^1.1.3"
