@@ -15,7 +15,7 @@ readme = "README.md"
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-outcome-devkit = "^3.0.9"
+outcome-devkit = "^3.0.11"
 pypicloud = {extras = ["gcs"], version = "^1.1.5"}
 uwsgi = "^2.0.19"
 outcome-pypicloud-access-github = "^1.1.3"
@@ -70,5 +70,5 @@ bump_message = "chore(version): $current_version → $new_version"
 version_files = ["README.md:version-badge", "pyproject.toml:version"]
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry==1.0.10"]
 build-backend = "poetry.masonry.api"
