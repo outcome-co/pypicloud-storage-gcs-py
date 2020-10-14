@@ -834,7 +834,7 @@ python-versions = "*"
 
 [[package]]
 name = "outcome-devkit"
-version = "3.0.13"
+version = "3.0.14"
 description = "A package containing common dev dependencies for python projects."
 category = "dev"
 optional = false
@@ -1774,7 +1774,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "8ada3090ca0295a87b1b1ce029882609b5bb9dc2d8a284fa65435186f248410b"
+content-hash = "1a02fdfd4287d626154da153638262c56eaef44d02896753db903f11615132cb"
 
 [metadata.files]
 appdirs = [
@@ -2197,8 +2197,8 @@ nodeenv = [
     {file = "nodeenv-1.5.0.tar.gz", hash = "sha256:ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"},
 ]
 outcome-devkit = [
-    {file = "outcome-devkit-3.0.13.tar.gz", hash = "sha256:4feae86c6bc5e53d5a6582329be6108117a76483bd4ab3618b34c28362f1a1a1"},
-    {file = "outcome_devkit-3.0.13-py3-none-any.whl", hash = "sha256:a6cab186b2c940174d1cccc3865e58bffdcc29a6390d776350cd9373ffeba304"},
+    {file = "outcome-devkit-3.0.14.tar.gz", hash = "sha256:987e6be578f85d754eaf29f8bd23e247ef79656c96a86b13aadcef9f2e36d8e6"},
+    {file = "outcome_devkit-3.0.14-py3-none-any.whl", hash = "sha256:fdb46f8b91e168db9fd3909f8714475bac77cb422fb4cd2461d1ec818fc3ff3f"},
 ]
 outcome-pypicloud-access-github = [
     {file = "outcome-pypicloud-access-github-1.2.0.tar.gz", hash = "sha256:4a0d042b999e0feaed898f2aa5afafa6895eacf450a22ea571f0ced3057b0636"},
