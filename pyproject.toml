@@ -12,7 +12,7 @@ documentation = "https://github.com/outcome-co/pypicloud-storage-gcs-py#README"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.8"
 
 [tool.poetry.dev-dependencies]
 outcome-devkit = "^3.0.11"
