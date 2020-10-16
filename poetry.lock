@@ -834,7 +834,7 @@ python-versions = "*"
 
 [[package]]
 name = "outcome-devkit"
-version = "3.0.15"
+version = "3.1.0"
 description = "A package containing common dev dependencies for python projects."
 category = "dev"
 optional = false
@@ -858,7 +858,7 @@ ipython = ">=7.13.0,<8.0.0"
 isort = ">=4.3.21,<5.0.0"
 mock = ">=4.0.2,<5.0.0"
 mypy = ">=0.780,<0.791"
-outcome-utils = ">=4.0.0,<5.0.0"
+outcome-utils = ">=4.11.0,<5.0.0"
 pdbpp = ">=0.10.2,<0.11.0"
 pre-commit = ">=2.2.0,<3.0.0"
 pytest = ">=5.3.5,<7.0.0"
@@ -884,7 +884,7 @@ memcache = ["python-memcached (>=1.59,<2.0)"]
 
 [[package]]
 name = "outcome-utils"
-version = "4.8.1"
+version = "4.11.0"
 description = "A collection of python utils."
 category = "dev"
 optional = false
@@ -1773,8 +1773,8 @@ test = ["zope.testing"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "16241cb5a69351d9f87eb2566353b53bb9426766c0539f4783ce8ff2e2435661"
+python-versions = "3.8"
+content-hash = "e7359412640772f7b93d7fe63e40e8fe5696694ca088d61490a6fc9339c9a59a"
 
 [metadata.files]
 appdirs = [
@@ -2197,16 +2197,16 @@ nodeenv = [
     {file = "nodeenv-1.5.0.tar.gz", hash = "sha256:ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"},
 ]
 outcome-devkit = [
-    {file = "outcome-devkit-3.0.15.tar.gz", hash = "sha256:f69f806bdafe18689de1a61653e75e18012ab943fb5be54924efe83ed44a314b"},
-    {file = "outcome_devkit-3.0.15-py3-none-any.whl", hash = "sha256:b2da87ac8c35aa5d50f23febedd4c446e4f4c06c1a6b48956de387cbf88bb35b"},
+    {file = "outcome-devkit-3.1.0.tar.gz", hash = "sha256:31deb6a49791076daf6cad8cf502ba8c76798bb15a35668d0ed65d4fac4d62d4"},
+    {file = "outcome_devkit-3.1.0-py3-none-any.whl", hash = "sha256:aa5938840cab16f05118480ee1204d235f82a3a06a57b54745745060b4e9c3d1"},
 ]
 outcome-pypicloud-access-github = [
     {file = "outcome-pypicloud-access-github-1.2.0.tar.gz", hash = "sha256:4a0d042b999e0feaed898f2aa5afafa6895eacf450a22ea571f0ced3057b0636"},
     {file = "outcome_pypicloud_access_github-1.2.0-py3-none-any.whl", hash = "sha256:f00b1830ca2f1a08645a53ea28908fe22fabbd046f73ca2d95d8a2a4ea49b316"},
 ]
 outcome-utils = [
-    {file = "outcome-utils-4.8.1.tar.gz", hash = "sha256:ab677b2b20873b09ed96847e86279f097c9bde23d35fac1c7d10f45b6008e78f"},
-    {file = "outcome_utils-4.8.1-py3-none-any.whl", hash = "sha256:090abc4817fb4dc4d80b06d059894ce2ec67cccd70b94d20fdcf39b2df5d4a5d"},
+    {file = "outcome-utils-4.11.0.tar.gz", hash = "sha256:51d6a8e694681af772217399442b23e49f40ef9277e4d5b07f1c85e27502ab61"},
+    {file = "outcome_utils-4.11.0-py3-none-any.whl", hash = "sha256:65f2eddf9140dca26e55328b8fe5c06a2fbcc739ecfcc4910a61643f47df6711"},
 ]
 packaging = [
     {file = "packaging-20.4-py2.py3-none-any.whl", hash = "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"},
