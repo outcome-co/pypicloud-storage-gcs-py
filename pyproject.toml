@@ -18,7 +18,7 @@ python = "3.8"
 outcome-devkit = "^3.2.1"
 pypicloud = {extras = ["gcs"], version = "^1.1.5"}
 uwsgi = "^2.0.19"
-outcome-pypicloud-access-github = "^1.2.1"
+outcome-pypicloud-access-github = "^1.2.2"
 pastescript = "^3.2.0"
 
 [tool.coverage.run]
