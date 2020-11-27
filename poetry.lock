@@ -978,7 +978,7 @@ wemake-python-styleguide = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "outcome-pypicloud-access-github"
-version = "1.2.3"
+version = "1.2.4"
 description = "A Github-based access backend for pypicloud."
 category = "dev"
 optional = false
@@ -1960,7 +1960,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8"
-content-hash = "e9869570a7fbc5d9be67723e4e2730a75280bf4c7f419b84be3fc67723653943"
+content-hash = "82ba52c08ac3f08797460efc908ab171d8b9d276b285f03f6b16e1bd2bf7e72c"
 
 [metadata.files]
 appdirs = [
@@ -2431,8 +2431,8 @@ outcome-devkit = [
     {file = "outcome_devkit-3.2.1-py3-none-any.whl", hash = "sha256:f539f0717b1d4b3f775ac129cb647be57e797343b4f92676d247583ad44c4f77"},
 ]
 outcome-pypicloud-access-github = [
-    {file = "outcome-pypicloud-access-github-1.2.3.tar.gz", hash = "sha256:bb605e091b36725a546b8cb53fe66e7833fae1ee2944d5b83b2ff2b24fdfb8be"},
-    {file = "outcome_pypicloud_access_github-1.2.3-py3-none-any.whl", hash = "sha256:bd0495c0cdb56dfe0f56a8f95a500415c413016faa3fee0f6b1114156846a1cb"},
+    {file = "outcome-pypicloud-access-github-1.2.4.tar.gz", hash = "sha256:50782f0a125d12e02a478c3e6787a6ff1170aa57177dce7979bd395d695bf34d"},
+    {file = "outcome_pypicloud_access_github-1.2.4-py3-none-any.whl", hash = "sha256:3ff5ddd82108835c36dd26188e8af20339f86d33b8f2e58baa7fba74052ac5f1"},
 ]
 outcome-utils = [
     {file = "outcome-utils-4.11.0.tar.gz", hash = "sha256:51d6a8e694681af772217399442b23e49f40ef9277e4d5b07f1c85e27502ab61"},
@@ -2669,6 +2669,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 regex = [
