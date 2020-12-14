@@ -12,7 +12,7 @@ documentation = "https://github.com/outcome-co/pypicloud-storage-gcs-py#README"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.8"
+python = "3.8.6"
 
 [tool.poetry.dev-dependencies]
 outcome-devkit = "^3.2.1"
@@ -70,5 +70,5 @@ bump_message = "chore(version): $current_version → $new_version"
 version_files = ["README.md:version-badge", "pyproject.toml:version"]
 
 [build-system]
-requires = ["poetry==1.0.10"]
+requires = ["poetry==1.1.4"]
 build-backend = "poetry.masonry.api"
