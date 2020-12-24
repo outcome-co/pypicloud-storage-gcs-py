@@ -978,7 +978,7 @@ wemake-python-styleguide = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "outcome-pypicloud-access-github"
-version = "1.2.5"
+version = "1.2.6"
 description = "A Github-based access backend for pypicloud."
 category = "dev"
 optional = false
@@ -987,7 +987,7 @@ python-versions = ">=3.8,<3.9"
 [package.dependencies]
 outcome-utils = ">=4.7.0,<5.0.0"
 pydash = ">=4.8.0,<5.0.0"
-sgqlc = ">=10.1,<12.0"
+sgqlc = ">=10.1,<13.0"
 toml = ">=0.10.1,<0.11.0"
 
 [package.extras]
@@ -1983,7 +1983,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.6"
-content-hash = "b488b45a436cf743b74e75e24466b5038870f81c4754984f1666502aab1edee4"
+content-hash = "35242061ca543abd36ff83083088cf31b88fc9d1c42e92e3b5c5a46d6b20b308"
 
 [metadata.files]
 appdirs = [
@@ -2454,8 +2454,8 @@ outcome-devkit = [
     {file = "outcome_devkit-3.5.5-py3-none-any.whl", hash = "sha256:88ae6b084cf6e2f4b677b08c721cf7668db0438401c957b6b771286b934d6025"},
 ]
 outcome-pypicloud-access-github = [
-    {file = "outcome-pypicloud-access-github-1.2.5.tar.gz", hash = "sha256:59b3baf557ce4192d565ea3d50ba09f328e3749401bae586beb17e862938a5c4"},
-    {file = "outcome_pypicloud_access_github-1.2.5-py3-none-any.whl", hash = "sha256:b2dc985fa26bd867785000dbb1a223c249a106888a48e2ffe5db98f8b8e41494"},
+    {file = "outcome-pypicloud-access-github-1.2.6.tar.gz", hash = "sha256:9b765e0d83801570ebeee874fa6eb9c03894714d6a8fac14451b53a4a172ffe9"},
+    {file = "outcome_pypicloud_access_github-1.2.6-py3-none-any.whl", hash = "sha256:99cbb6464ad561879bd8cabb19645e2ee50a77212c072e3c8bdf081faf15a0c7"},
 ]
 outcome-utils = [
     {file = "outcome-utils-4.11.0.tar.gz", hash = "sha256:51d6a8e694681af772217399442b23e49f40ef9277e4d5b07f1c85e27502ab61"},
