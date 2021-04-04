@@ -45,13 +45,13 @@ class BucketProxy:
 
     # We implement the subset of methods actually called by pypicloud
 
-    def list_blobs(self, prefix: Optional[str] = None) -> Iterator[Blob]:
+    def list_blobs(self, prefix: Optional[str] = None) -> Iterator[Blob]:  # pragma: no cover
         return cast(Iterator[Blob], self._get_client().list_blobs(bucket_or_name=self.bucket_name, prefix=prefix))
 
-    def blob(self, name: str) -> Blob:
+    def blob(self, name: str) -> Blob:  # pragma: no cover
         return self._get_bucket().blob(name)
 
-    def _get_bucket(self) -> Bucket:
+    def _get_bucket(self) -> Bucket:  # pragma: no cover
         return self._get_client().bucket(self.bucket_name)
 
     def _get_client(self) -> Client:

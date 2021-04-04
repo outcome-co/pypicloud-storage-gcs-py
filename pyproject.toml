@@ -27,7 +27,6 @@ source = ['src/outcome/pypicloud_storage_gcs']
 omit = [
    "test/*"
 ]
-parallel = true
 
 [tool.coverage.report]
 fail_under = 100
