@@ -1,73 +1,60 @@
 import time
 from multiprocessing import Pool as ProcessPool
 from multiprocessing.dummy import Pool as ThreadPool
-from unittest.mock import Mock, patch
+from typing import Callable, Iterable, Protocol, Sequence, TypeVar, cast
+from unittest.mock import Mock
 
-import pytest
-from outcome.pypicloud_storage_gcs.threadsafe_gcs import BucketDescriptor
+from outcome.pypicloud_storage_gcs.threadsafe_gcs import Bucket, Client, Settings, ThreadsafeGoogleCloudStorage
 
 bucket_name = 'test_bucket'
-kwargs = {'arg': 'value'}
+settings = {'arg': 'value'}
 
 
-mock_gcs_client_factory = Mock()
-
-
-def mock_gcs_client_factory_implementation(*args, **kwargs):
-    mock_client = Mock()
-    mock_bucket = Mock()
-
-    mock_bucket.client = mock_client
-    mock_client.bucket.return_value = mock_bucket
-
-    return mock_client
-
-
-mock_gcs_client_factory.side_effect = mock_gcs_client_factory_implementation
-
-
-@pytest.fixture(autouse=True)
-def reset_mock():
-    mock_gcs_client_factory.reset_mock()
-    mock_gcs_client_factory.side_effect = mock_gcs_client_factory_implementation
-
-
-class DummyClass:
-    bucket = BucketDescriptor(mock_gcs_client_factory)
-
-    def __init__(self):
-        self.bucket_name = bucket_name
-        self.bucket_client_settings = kwargs
-
-
-def get_bucket_id(instance):
+def get_bucket_id(bucket: Bucket) -> int:
     # We sleep to ensure that we don't re-use the same thread/process
     # twice
     time.sleep(0.5)
 
     # We return the object id of the bucket's client, since we can't return the
     # actual bucket as it doesn't pickle
-    return id(instance.bucket.client)
+    return id(cast(Client, bucket.client))
 
 
-class TestDescriptor:
-    @patch('outcome.pypicloud_storage_gcs.threadsafe_gcs.ThreadsafeGoogleCloudStorage._get_storage_client', autospec=True)
-    def test_descriptor(self, mocked_get_client: Mock):
-        instance = DummyClass()
+T = TypeVar('T')
 
-        mock_gcs_client_factory.assert_not_called()
 
-        bucket_a = instance.bucket
-        bucket_b = instance.bucket
+class IsolatedStorage(ThreadsafeGoogleCloudStorage):
+    @classmethod
+    def _get_storage_client(cls, settings: Settings) -> Client:
+        return Mock()
 
-        assert bucket_a is bucket_b
-        mock_gcs_client_factory.assert_called_once_with(kwargs)
 
-    def run_pool_test(self, pool_type):
-        instance = DummyClass()
+class Pool(Protocol):
+    def close(self) -> None:
+        ...
+
+    def join(self) -> None:
+        ...
+
+    def map(self, func: Callable[[T], object], iterable: Iterable[T]) -> Sequence[object]:  # noqa: A003
+        ...
+
+
+class PoolConstructor(Protocol):
+    def __call__(self, processes: int) -> Pool:
+        ...
+
+
+class TestThreadsafe:
+    def test_single_thread(self):
+        bucket = IsolatedStorage.get_bucket(bucket_name, settings, skip_default=True)
+        assert bucket.client is bucket.client
+
+    def run_pool_test(self, pool_type: PoolConstructor):
+        bucket = IsolatedStorage.get_bucket(bucket_name, settings, skip_default=True)
 
         parallelism = 4
-        parallel_args = [instance] * parallelism  # noqa: WPS435
+        parallel_args = [bucket] * parallelism  # noqa: WPS435
 
         pool = pool_type(parallelism)
         results = pool.map(get_bucket_id, parallel_args)
