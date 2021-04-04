@@ -12,13 +12,12 @@ documentation = "https://github.com/outcome-co/pypicloud-storage-gcs-py#README"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.8.6"
+python = "^3.8.6"
 
 [tool.poetry.dev-dependencies]
-outcome-devkit = "^3.5.12"
+outcome-devkit = "^6.6.1"
 pypicloud = {extras = ["gcs"], version = "^1.1.7"}
 uwsgi = "^2.0.19"
-outcome-pypicloud-access-github = "^1.2.7"
 pastescript = "^3.2.0"
 
 [tool.coverage.run]
