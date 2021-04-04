@@ -16,7 +16,6 @@ env:
   # the actions/cache@v2.1.4 action to store downloaded dependencies between multiple runs
   POETRY_CACHE_DIR: ${{ github.workspace }}/.cache/poetry
   PIP_CACHE_DIR: ${{ github.workspace }}/.cache/pip
-  GITHUB_TOKEN: ${{ secrets.OTTO_TOKEN }}
   POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_REGISTRY_TOKEN }}
 
 jobs:
@@ -42,6 +41,8 @@ jobs:
 
         - uses: amannn/action-semantic-pull-request@v3.1.0
           if: github.event_name == 'pull_request'
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     test:
       name: Run checks and tests
@@ -155,21 +156,3 @@ jobs:
           env:
             PYTHONPATH: src
 
-    auto_merge_dependabot:
-        name: Auto-approve dependabot pull requests
-        runs-on: ubuntu-latest
-        needs: [test]
-
-        if: (github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]') && github.event_name == 'pull_request'
-
-        steps:
-          - name: Auto-approve
-            uses: hmarr/auto-approve-action@v2.0.0
-            with:
-              github-token: ${{ secrets.OTTO_TOKEN }}
-
-          - name: Auto-merge
-            uses: "pascalgn/automerge-action@v0.13.0"
-            env:
-              MERGE_LABELS: ""
-              MERGE_METHOD: squash
