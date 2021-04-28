@@ -1266,7 +1266,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pastescript"
-version = "3.2.0"
+version = "3.2.1"
 description = "A pluggable command-line frontend, including commands to setup package file layouts"
 category = "dev"
 optional = false
@@ -2311,7 +2311,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.6"
-content-hash = "b8162fa9929a5bfc30be99bf16225ff23b9b2e36474014e17529eadf2f9974ab"
+content-hash = "7714f3dabf86ff24eca1e8a357b0c193269ef34fba16a74b8a0bae14913201f6"
 
 [metadata.files]
 appdirs = [
@@ -2964,8 +2964,8 @@ pastel = [
     {file = "pastel-0.2.1.tar.gz", hash = "sha256:e6581ac04e973cac858828c6202c1e1e81fee1dc7de7683f3e1ffe0bfd8a573d"},
 ]
 pastescript = [
-    {file = "PasteScript-3.2.0-py2.py3-none-any.whl", hash = "sha256:a08970fdcd5fcd92d79c51fe356d7866f13d30e847bd2eed0351f9644236b3b8"},
-    {file = "PasteScript-3.2.0.tar.gz", hash = "sha256:9b0f5c0f1c6a510a353fa7c3dc4fdaab9071462d60d24573de76a001fbc172ac"},
+    {file = "PasteScript-3.2.1-py2.py3-none-any.whl", hash = "sha256:f4b053501b0535a32743e108b6296b250a1ee65c473ba681d2f1ca1c32f59cdd"},
+    {file = "PasteScript-3.2.1.tar.gz", hash = "sha256:f3ef819785e1b284e6fc108a131bce7e740b18255d96cd2e99ee3f00fd452468"},
 ]
 pathlib2 = [
     {file = "pathlib2-2.3.5-py2.py3-none-any.whl", hash = "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db"},
