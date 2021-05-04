@@ -165,6 +165,14 @@ filecache = ["lockfile (>=0.9)"]
 redis = ["redis (>=2.10.5)"]
 
 [[package]]
+name = "cached-property"
+version = "1.5.2"
+description = "A decorator for caching properties in classes."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "cachepath"
 version = "1.1.1"
 description = "Pythonic parameterized cache paths."
@@ -1102,7 +1110,7 @@ python-versions = "*"
 
 [[package]]
 name = "outcome-devkit"
-version = "7.1.1"
+version = "7.2.0"
 description = "A package containing common dev dependencies for python projects."
 category = "dev"
 optional = false
@@ -1133,6 +1141,7 @@ pdbpp = ">=0.10.2,<0.11.0"
 poetry = "1.1.5"
 pre-commit = ">=2.10.1,<3.0.0"
 pydantic = ">=1.7.3,<2.0.0"
+pygit2 = ">=1.5.0,<2.0.0"
 pytest = ">=6.2.2,<7.0.0"
 pytest-asyncio = ">=0.12,<0.16"
 rich = ">=9.11.0,<10.0.0"
@@ -1572,6 +1581,18 @@ description = "passive checker of Python programs"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "pygit2"
+version = "1.5.0"
+description = "Python bindings for libgit2."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+cached-property = "*"
+cffi = ">=1.4.0"
 
 [[package]]
 name = "pygments"
@@ -2320,7 +2341,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.6"
-content-hash = "9d2cb89cbce40556de35da2122b361ca7c7ea517701aa74b5c50cf6706a6729a"
+content-hash = "b2e79f705b21977c25e901bc60f1fd58a7682c7ba2565c2cda0c72382664796f"
 
 [metadata.files]
 appdirs = [
@@ -2372,6 +2393,10 @@ botocore = [
 cachecontrol = [
     {file = "CacheControl-0.12.6-py2.py3-none-any.whl", hash = "sha256:10d056fa27f8563a271b345207402a6dcce8efab7e5b377e270329c62471b10d"},
     {file = "CacheControl-0.12.6.tar.gz", hash = "sha256:be9aa45477a134aee56c8fac518627e1154df063e85f67d4f83ce0ccc23688e8"},
+]
+cached-property = [
+    {file = "cached-property-1.5.2.tar.gz", hash = "sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"},
+    {file = "cached_property-1.5.2-py2.py3-none-any.whl", hash = "sha256:df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0"},
 ]
 cachepath = [
     {file = "cachepath-1.1.1-py2.py3-none-any.whl", hash = "sha256:8a92ec61cc2bc40401bda656b47bdb3b16234e500357ff66edd8f8a2c7524b7c"},
@@ -2933,8 +2958,8 @@ nodeenv = [
     {file = "nodeenv-1.5.0.tar.gz", hash = "sha256:ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"},
 ]
 outcome-devkit = [
-    {file = "outcome-devkit-7.1.1.tar.gz", hash = "sha256:2f11e468956a4fea62b013ec7bab980efb2b9f46eeb7d4f0cd7e1bba7d5bf1eb"},
-    {file = "outcome_devkit-7.1.1-py3-none-any.whl", hash = "sha256:4ef6f6646e21312bcdb794490057a3327fb5ed1334bbd6d4aae531dc569a4e1a"},
+    {file = "outcome-devkit-7.2.0.tar.gz", hash = "sha256:9d3ccb43fb1cbd4cc9c1c8022593be73b592308f7a0aa2d04ab31e0c15b80c0f"},
+    {file = "outcome_devkit-7.2.0-py3-none-any.whl", hash = "sha256:4079baa1bab678b1973d77992c9e0daf14d373ea01ccb517d191e0070b7d8ce4"},
 ]
 outcome-read-toml = [
     {file = "outcome-read-toml-2.1.1.tar.gz", hash = "sha256:aa5752e2b1f4b8ac6d13629210b5b79a3b3663cdfaf30175d23eb30a4b48702f"},
@@ -3137,6 +3162,25 @@ pydocstyle = [
 pyflakes = [
     {file = "pyflakes-2.3.1-py2.py3-none-any.whl", hash = "sha256:7893783d01b8a89811dd72d7dfd4d84ff098e5eed95cfa8905b22bbffe52efc3"},
     {file = "pyflakes-2.3.1.tar.gz", hash = "sha256:f5bc8ecabc05bb9d291eb5203d6810b49040f6ff446a756326104746cc00c1db"},
+]
+pygit2 = [
+    {file = "pygit2-1.5.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:eb333e43024ba631e83c7500a9853f79feb5daf8b25e6faa8025021f3d83a51a"},
+    {file = "pygit2-1.5.0-cp36-cp36m-manylinux2014_x86_64.whl", hash = "sha256:7a2a511ab8cde226a377bff1e1c517be52f1f3162c5bab2d37e3098a2e12e97e"},
+    {file = "pygit2-1.5.0-cp36-cp36m-win32.whl", hash = "sha256:6512e6f0f07affb97fef4b8733bee0953693de3d38e870d106092d6566ca91b2"},
+    {file = "pygit2-1.5.0-cp36-cp36m-win_amd64.whl", hash = "sha256:89a095765337fa2c2100a840b21f1e9a9cbf931df6b0a8ef7ed046e27194b5f3"},
+    {file = "pygit2-1.5.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:320ec448bb37a02c620a3b2ed3355614198513093de6e1777783e826a030bcea"},
+    {file = "pygit2-1.5.0-cp37-cp37m-manylinux2014_x86_64.whl", hash = "sha256:fda3f8dd30608475f24a531e6f968010662ed7b9d4e303525d945c8933d9528f"},
+    {file = "pygit2-1.5.0-cp37-cp37m-win32.whl", hash = "sha256:b5f52c2d0bda69be8ded1f66c7e6c6c9e21fdeb6d76488edf63af466fb9273ce"},
+    {file = "pygit2-1.5.0-cp37-cp37m-win_amd64.whl", hash = "sha256:b59e0ab959b682ca0dbc2040f11eaed144b4963c91c97a815b076559ea0e6f24"},
+    {file = "pygit2-1.5.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:5acd2a1c3b0949c9804a98ea7f447a9fc6e1f229b9bafa64bb71fa2500899914"},
+    {file = "pygit2-1.5.0-cp38-cp38-manylinux2014_x86_64.whl", hash = "sha256:a5c64ec093523710a5849cc35d73878d0762aac6920d5b7bec949809fe7f2446"},
+    {file = "pygit2-1.5.0-cp38-cp38-win32.whl", hash = "sha256:ea9c540e2b87153707b16ddcc5853a27bcc6e60a3817b3ec7ca3dce09cc954fe"},
+    {file = "pygit2-1.5.0-cp38-cp38-win_amd64.whl", hash = "sha256:d3951d2ef3942c0377738189c307df002d8a2c19351b2cf6620cbe2229703c5f"},
+    {file = "pygit2-1.5.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:279ebf1560be0f563caab1584ff38169c757afdaf44ca7fc790b72bd14b6d1a6"},
+    {file = "pygit2-1.5.0-cp39-cp39-manylinux2014_x86_64.whl", hash = "sha256:711829b95c42f5db019f381647fe6e8f52f3ff349c9ed9c77722b1e7bfdca3cf"},
+    {file = "pygit2-1.5.0-cp39-cp39-win32.whl", hash = "sha256:40c2a6f15f916fc5ff7be191daf1d0308eb081c8a7e24db1263f7d3e4fffbc65"},
+    {file = "pygit2-1.5.0-cp39-cp39-win_amd64.whl", hash = "sha256:b953b84871bf21581019c0b2b3c8c7613b1543c6b9b726d22d0d9838ed835a83"},
+    {file = "pygit2-1.5.0.tar.gz", hash = "sha256:9711367bd05f96ad6fc9c91d88fa96126ba2d1f1c3ea6f23c11402c243d66a20"},
 ]
 pygments = [
     {file = "Pygments-2.8.1-py3-none-any.whl", hash = "sha256:534ef71d539ae97d4c3a4cf7d6f110f214b0e687e92f9cb9d2a3b0d3101289c8"},
